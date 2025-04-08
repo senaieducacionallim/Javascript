@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Biblioteca</h1>
+    </header>
+    <div class="menu">
+      <button onclick="adicionarLivro()">Adicionar Livro</button>
+      <button onclick="buscarLivro()">Buscar Livro</button>
+      <button onclick="listarLivros()">Listar Livros</button>
+      <button onclick="emprestimoLivro()">Empréstimo de Livros</button>
+    </div>
+    <div class="book-list">
+      <h2>Lista de Livros</h2>
+      <ul id="listaLivros"></ul>
+    </div>
+  </div>
+  <script src="biblioteca.js"></script>
+</body>
+</html>

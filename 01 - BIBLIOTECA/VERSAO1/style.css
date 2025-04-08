@@ -1,0 +1,66 @@
+/* Estilo para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Estilo para o contêiner principal */
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilo para o cabeçalho */
+  header {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* Estilo para o menu */
+  .menu {
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .menu button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .menu button:hover {
+    background-color: #555;
+  }
+  
+  /* Estilo para a lista de livros */
+  .book-list {
+    margin: 20px 0;
+  }
+  
+  .book-list h2 {
+    text-align: center;
+  }
+  
+  .book-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .book-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .book-list li:last-child {
+    border-bottom: none;
+  }
