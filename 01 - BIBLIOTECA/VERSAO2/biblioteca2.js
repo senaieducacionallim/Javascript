@@ -36,7 +36,6 @@ function buscarLivro() {
   atualizarLista(resultados);
 }
 
-function 
 function buscarLivroParaAlterar() {
   const busca = document.getElementById("busca-alterar").value.toLowerCase();
   livroParaAlterar = biblioteca.find((livro) =>
@@ -88,3 +87,38 @@ function atualizarLista(lista = biblioteca) {
   });
 }
 
+let emprestimos = [];
+
+function realizarEmprestimo() {
+  const titulo = document.getElementById("emprestimo-titulo").value;
+  const nomeUsuario = document.getElementById("emprestimo-nome").value;
+
+  if (titulo && nomeUsuario) {
+    const livro = biblioteca.find(
+      (livro) => livro.titulo.toLowerCase() === titulo.toLowerCase()
+    );
+
+    if (livro) {
+      emprestimos.push({ titulo: livro.titulo, usuario: nomeUsuario });
+      atualizarListaEmprestimos();
+      alert("Empréstimo realizado com sucesso!");
+      document.getElementById("emprestimo-titulo").value = "";
+      document.getElementById("emprestimo-nome").value = "";
+    } else {
+      alert("Livro não encontrado na biblioteca.");
+    }
+  } else {
+    alert("Por favor, preencha todos os campos.");
+  }
+}
+
+function atualizarListaEmprestimos() {
+  const listaEmprestimos = document.getElementById("lista-emprestimos");
+  listaEmprestimos.innerHTML = "";
+
+  emprestimos.forEach((emprestimo) => {
+    const item = document.createElement("li");
+    item.textContent = `Livro: ${emprestimo.titulo} - Usuário: ${emprestimo.usuario}`;
+    listaEmprestimos.appendChild(item);
+  });
+}

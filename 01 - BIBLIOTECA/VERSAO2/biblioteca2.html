@@ -24,6 +24,9 @@
           <button onclick="mostrarSecao('alterar')">
             <i class="fas fa-edit icon"></i>Alterar Livro
           </button>
+          <button onclick="mostrarSecao('emprestimo')">
+            <i class="fas fa-book-reader icon"></i>Empréstimo de Livros
+          </button>
     </div>
 
     <!-- Seção de Cadastro -->
@@ -41,6 +44,8 @@
         <label for="ano">Ano:</label>
         <input type="number" id="ano" placeholder="Digite o ano de publicação">
       </div>
+
+      
       <button onclick="adicionarLivro()">Adicionar Livro</button>
     </div>
 
@@ -83,8 +88,27 @@
         <button onclick="alterarLivro()">Salvar Alterações</button>
       </div>
     </div>
+     <!-- Seção de Empréstimo -->
+<div id="emprestimo" class="hidden">
+  <h2>Empréstimo de Livros</h2>
+  <div class="form-group">
+    <label for="emprestimo-titulo">Título do Livro:</label>
+    <input type="text" id="emprestimo-titulo" placeholder="Digite o título do livro">
+  </div>
+  <div class="form-group">
+    <label for="emprestimo-nome">Nome do Usuário:</label>
+    <input type="text" id="emprestimo-nome" placeholder="Digite o nome do usuário">
+  </div>
+  <button onclick="realizarEmprestimo()">Realizar Empréstimo</button>
+  <h3>Livros Emprestados</h3>
+  <ul id="lista-emprestimos">
+    <!-- Lista de empréstimos será exibida aqui -->
+  </ul>
+</div>
+
   </div>
 
+ 
   <!-- meu script -->
   <script src="biblioteca2.js"></script>
 </body>
