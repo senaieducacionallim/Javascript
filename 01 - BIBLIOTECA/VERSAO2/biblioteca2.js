@@ -36,6 +36,7 @@ function buscarLivro() {
   atualizarLista(resultados);
 }
 
+function 
 function buscarLivroParaAlterar() {
   const busca = document.getElementById("busca-alterar").value.toLowerCase();
   livroParaAlterar = biblioteca.find((livro) =>
