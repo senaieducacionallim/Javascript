@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 6 - Classificação de Notas</title>
+</head>
+<body>
+    <h1>Classificação de Notas</h1>
+    <script>
+        const nota = parseFloat(prompt("Digite a nota (0 a 10):"));
+
+        switch (true) {
+            case (nota >= 9 && nota <= 10):
+                alert("Classificação: A");
+                break;
+            case (nota >= 7 && nota < 9):
+                alert("Classificação: B");
+                break;
+            case (nota >= 5 && nota < 7):
+                alert("Classificação: C");
+                break;
+            case (nota >= 3 && nota < 5):
+                alert("Classificação: D");
+                break;
+            case (nota >= 0 && nota < 3):
+                alert("Classificação: F");
+                break;
+            default:
+                alert("Nota inválida!");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 7 - Calculadora de Área</title>
+</head>
+<body>
+    <h1>Calculadora de Área</h1>
+    <script>
+        const figura = parseInt(prompt(`
+        Escolha a figura geométrica:
+        1. Quadrado
+        2. Retângulo
+        3. Triângulo
+        4. Círculo
+        `));
+
+        switch (figura) {
+            case 1:
+                const lado = parseFloat(prompt("Digite o lado do quadrado:"));
+                alert(`Área do Quadrado: ${lado * lado}`);
+                break;
+            case 2:
+                const baseRet = parseFloat(prompt("Digite a base do retângulo:"));
+                const alturaRet = parseFloat(prompt("Digite a altura do retângulo:"));
+                alert(`Área do Retângulo: ${baseRet * alturaRet}`);
+                break;
+            case 3:
+                const baseTri = parseFloat(prompt("Digite a base do triângulo:"));
+                const alturaTri = parseFloat(prompt("Digite a altura do triângulo:"));
+                alert(`Área do Triângulo: ${(baseTri * alturaTri) / 2}`);
+                break;
+            case 4:
+                const raio = parseFloat(prompt("Digite o raio do círculo:"));
+                alert(`Área do Círculo: ${(Math.PI * raio * raio).toFixed(2)}`);
+                break;
+            default:
+                alert("Opção inválida!");
+        }
+    </script>
+</body>
+</html>

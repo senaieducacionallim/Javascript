@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 5 - Conversor de Moedas</title>
+</head>
+<body>
+    <h1>Conversor de Moedas</h1>
+    <script>
+        const valorReais = parseFloat(prompt("Digite o valor em reais (R$):"));
+        const moeda = parseInt(prompt(`
+        Escolha a moeda para conversão:
+        1. Dólar (cotação: 5.00)
+        2. Euro (cotação: 5.50)
+        3. Libra (cotação: 6.50)
+        `));
+
+        switch (moeda) {
+            case 1:
+                alert(`Valor em Dólares: $ ${(valorReais / 5).toFixed(2)}`);
+                break;
+            case 2:
+                alert(`Valor em Euros: € ${(valorReais / 5.5).toFixed(2)}`);
+                break;
+            case 3:
+                alert(`Valor em Libras: £ ${(valorReais / 6.5).toFixed(2)}`);
+                break;
+            default:
+                alert("Opção inválida!");
+        }
+    </script>
+</body>
+</html>

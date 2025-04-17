@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 8 - Estações do Ano</title>
+</head>
+<body>
+    <h1>Identificador de Estações do Ano</h1>
+    <script>
+        const mes = parseInt(prompt("Digite o número do mês (1 a 12):"));
+
+        switch (mes) {
+            case 12:
+            case 1:
+            case 2:
+                alert("Estação: Verão");
+                break;
+            case 3:
+            case 4:
+            case 5:
+                alert("Estação: Outono");
+                break;
+            case 6:
+            case 7:
+            case 8:
+                alert("Estação: Inverno");
+                break;
+            case 9:
+            case 10:
+            case 11:
+                alert("Estação: Primavera");
+                break;
+            default:
+                alert("Mês inválido! Digite um número entre 1 e 12.");
+        }
+    </script>
+</body>
+</html>
