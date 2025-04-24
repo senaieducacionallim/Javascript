@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Roupas</title>
+</head>
+<body>
+    <h1>Loja de Roupas</h1>
+    <label for="tipoRoupa">Escolha o tipo de roupa:</label>
+    <select id="tipoRoupa">
+        <option value="camisa">Camisa</option>
+        <option value="calca">Calça</option>
+        <option value="vestido">Vestido</option>
+    </select>
+    <label for="quantidade">Quantidade:</label>
+    <input type="number" id="quantidade" min="1" value="1">
+    <button onclick="calcularPreco()">Calcular Preço</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularPreco() {
+            const tipoRoupa = document.getElementById('tipoRoupa').value;
+            const quantidade = parseInt(document.getElementById('quantidade').value);
+            let precoUnitario = 0;
+
+            // Define o preço unitário com base no tipo de roupa
+            switch (tipoRoupa) {
+                case 'camisa':
+                    precoUnitario = 50;
+                    break;
+                case 'calca':
+                    precoUnitario = 80;
+                    break;
+                case 'vestido':
+                    precoUnitario = 120;
+                    break;
+                default:
+                    precoUnitario = 0;
+            }
+
+            // Calcula o preço total sem desconto
+            const precoTotal = precoUnitario * quantidade;
+
+            // Aplica o desconto de 10% se o preço total for maior que R$ 100
+            let precoFinal = precoTotal;
+            if (precoTotal > 100) {
+                precoFinal = precoTotal * 0.9; // Aplica 10% de desconto
+            }
+
+            // Exibe o resultado
+            document.getElementById('resultado').innerHTML = 
+                `Você comprou ${quantidade} ${tipoRoupa}(s).<br>
+                Preço total sem desconto: R$ ${precoTotal.toFixed(2)}.<br>
+                Preço final com desconto (se aplicável): R$ ${precoFinal.toFixed(2)}.`;
+        }
+    </script>
+</body>
+</html>

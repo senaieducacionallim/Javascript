@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações do Carro</title>
+</head>
+<body>
+    <h1>Informações do Carro</h1>
+    <label for="modelo">Digite o modelo do carro:</label>
+    <input type="text" id="modelo" placeholder="Ex: Sedan, SUV, Hatch">
+    <button onclick="exibirInformacoes()">Consultar</button>
+
+    <div id="resultado"></div>
+    <div id="servicos"></div>
+
+    <script>
+        function exibirInformacoes() {
+            const modelo = document.getElementById('modelo').value.toLowerCase();
+            const resultado = document.getElementById('resultado');
+            const servicos = document.getElementById('servicos');
+            let preco, ano, combustivel;
+
+            switch (modelo) {
+                case 'sedan':
+                    preco = 'R$ 80.000';
+                    ano = 2022;
+                    combustivel = 'Gasolina';
+                    break;
+                case 'suv':
+                    preco = 'R$ 120.000';
+                    ano = 2023;
+                    combustivel = 'Diesel';
+                    break;
+                case 'hatch':
+                    preco = 'R$ 60.000';
+                    ano = 2021;
+                    combustivel = 'Flex';
+                    break;
+                default:
+                    resultado.innerHTML = '<p>Modelo não encontrado. Tente novamente.</p>';
+                    servicos.innerHTML = '';
+                    return;
+            }
+
+            resultado.innerHTML = `
+                <h2>Informações do Carro</h2>
+                <p>Modelo: ${modelo.charAt(0).toUpperCase() + modelo.slice(1)}</p>
+                <p>Preço: ${preco}</p>
+                <p>Ano de Fabricação: ${ano}</p>
+                <p>Tipo de Combustível: ${combustivel}</p>
+            `;
+
+            // Relatório de serviços realizados
+            const servicosRealizados = [
+                { descricao: 'Troca de óleo', valor: 200 },
+                { descricao: 'Alinhamento', valor: 150 },
+                { descricao: 'Revisão geral', valor: 500 }
+            ];
+
+            let totalServicos = 0;
+            let servicosHTML = '<h2>Relatório de Serviços</h2><ul>';
+            servicosRealizados.forEach(servico => {
+                servicosHTML += `<li>${servico.descricao}: R$ ${servico.valor}</li>`;
+                totalServicos += servico.valor;
+            });
+            servicosHTML += `</ul><p><strong>Valor Total: R$ ${totalServicos}</strong></p>`;
+
+            servicos.innerHTML = servicosHTML;
+        }
+    </script>
+</body>
+</html>
