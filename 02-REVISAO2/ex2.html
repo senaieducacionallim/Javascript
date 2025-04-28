@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dispositivo Informações</title>
+    <title>Revisão 2</title>
+    <body>
+        <h1>Revisão 2 - Atividade Dispositivos Antigos</h1>
+       Digite o aparelho que deseja consultar:  <input type="text" id="dispositivo">
+   
+        <button onclick="mostrarInformacoes()">Ver Dispositivo</button> <br>
+    
+        <p id="resultado"></p>
+    </body>
     <script>
         function mostrarInformacoes() {
             const dispositivo = document.getElementById("dispositivo").value;
@@ -23,19 +31,9 @@
                     informacao = "Por favor, selecione um dispositivo válido.";
             }
 
-            document.getElementById("informacoes").innerText = informacao;
+            document.getElementById("resultado").innerText = informacao;
         }
     </script>
 </head>
-<body>
-    <h1>Informações sobre Dispositivos</h1>
-    <label for="dispositivo">Escolha um dispositivo:</label>
-    <select id="dispositivo" onchange="mostrarInformacoes()">
-        <option value="">--Selecione--</option>
-        <option value="fitaCassete">Fita Cassete</option>
-        <option value="dvd">DVD</option>
-        <option value="cd">CD</option>
-    </select>
-    <p id="informacoes"></p>
-</body>
+
 </html></select></html>
