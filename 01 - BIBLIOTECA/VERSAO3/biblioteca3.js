@@ -123,7 +123,7 @@ function atualizarListaEmprestimos() {
   });
 }
 
-
+// --- Registro de Vendas ---
 let vendas = []; // Array para armazenar as vendas
 
 function registrarVenda() {
@@ -149,6 +149,7 @@ function registrarVenda() {
   }
 }
 
+//  Relatório de Vendas
 function gerarRelatorioVendas() {
   const tabelaRelatorio = document.getElementById('tabela-relatorio-vendas');
   tabelaRelatorio.innerHTML = ''; // Limpar tabela
@@ -159,6 +160,11 @@ function gerarRelatorioVendas() {
   }
 
   let totalVendas = 0; // Variável para armazenar o total das vendas
+
+  if (totalVendas.length === 0) {
+    alert('Valor de Venda não registrado.!')
+    return;
+  }
 
   vendas.forEach((venda) => {
     const linha = document.createElement('tr');
