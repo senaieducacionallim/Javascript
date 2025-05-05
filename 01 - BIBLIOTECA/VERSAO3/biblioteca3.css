@@ -3,6 +3,7 @@ body {
     margin: 20px;
     background-color: #f9f9f9;
     color: #333;
+    
   }
   
   .container {
@@ -54,7 +55,7 @@ body {
   }
   
   input, button {
-    width: 100%;
+    width: auto;
     padding: 10px;
     margin-top: 5px;
     border: 1px solid #ddd;
@@ -76,9 +77,12 @@ body {
   }
   
   table {
+   
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    text-align: center ;
+    
   }
   
   th, td {
