@@ -1,3 +1,34 @@
+function exibirMensagem(texto, tipo) {
+  const mensagem = document.getElementById("mensagem");
+  mensagem.textContent = texto;
+  mensagem.className = `mensagem ${tipo}`; // Adiciona a classe de estilo (sucesso ou erro)
+  mensagem.classList.remove("hidden");
+
+  // Remove a mensagem após 3 segundos
+  setTimeout(() => {
+    mensagem.classList.add("hidden");
+  }, 3000);
+}
+
+function validarLogin() {
+  const usuario = document.getElementById("usuario").value;
+  const senha = document.getElementById("senha").value;
+
+  // Usuário e senha fixos para validação (você pode substituir por algo mais avançado)
+  const usuarioCorreto = "admin";
+  const senhaCorreta = "1234";
+
+  if (usuario === usuarioCorreto && senha === senhaCorreta) {
+    exibirMensagem("Login realizado com sucesso!", "sucesso");
+    setTimeout(() => {
+      // Redireciona para a página principal
+      window.location.href = "biblioteca3.html";
+    }, 1000); // Aguarda 1 segundo antes de redirecionar
+  } else {
+    exibirMensagem("Usuário ou senha incorretos.", "erro");
+  }
+}
+
 let biblioteca = [];
 let livroParaAlterar = null;
 
@@ -127,13 +158,13 @@ function atualizarListaEmprestimos() {
 let vendas = []; // Array para armazenar as vendas
 
 function registrarVenda() {
-  const titulo = document.getElementById('venda-titulo').value;
-  const preco = document.getElementById('venda-preco').value;
-  const comprador = document.getElementById('venda-comprador').value;
+  const titulo = document.getElementById("venda-titulo").value;
+  const preco = document.getElementById("venda-preco").value;
+  const comprador = document.getElementById("venda-comprador").value;
 
   if (titulo && preco && comprador) {
-    const listaVendas = document.getElementById('lista-vendas');
-    const item = document.createElement('li');
+    const listaVendas = document.getElementById("lista-vendas");
+    const item = document.createElement("li");
     item.textContent = `Título: ${titulo}, Preço: R$${preco}, Comprador: ${comprador}`;
     listaVendas.appendChild(item);
 
@@ -141,33 +172,33 @@ function registrarVenda() {
     vendas.push({ titulo, preco, comprador });
 
     // Limpar os campos
-    document.getElementById('venda-titulo').value = '';
-    document.getElementById('venda-preco').value = '';
-    document.getElementById('venda-comprador').value = '';
+    document.getElementById("venda-titulo").value = "";
+    document.getElementById("venda-preco").value = "";
+    document.getElementById("venda-comprador").value = "";
   } else {
-    alert('Por favor, preencha todos os campos!');
+    alert("Por favor, preencha todos os campos!");
   }
 }
 
 //  Relatório de Vendas
 function gerarRelatorioVendas() {
-  const tabelaRelatorio = document.getElementById('tabela-relatorio-vendas');
-  tabelaRelatorio.innerHTML = ''; // Limpar tabela
+  const tabelaRelatorio = document.getElementById("tabela-relatorio-vendas");
+  tabelaRelatorio.innerHTML = ""; // Limpar tabela
 
   if (vendas.length === 0) {
-    alert('Nenhuma venda registrada.');
+    alert("Nenhuma venda registrada.");
     return;
   }
 
   let totalVendas = 0; // Variável para armazenar o total das vendas
 
   if (totalVendas.length === 0) {
-    alert('Valor de Venda não registrado.!')
+    alert("Valor de Venda não registrado.!");
     return;
   }
 
   vendas.forEach((venda) => {
-    const linha = document.createElement('tr');
+    const linha = document.createElement("tr");
     linha.innerHTML = `
       <td>${venda.titulo}</td>
       <td>R$${parseFloat(venda.preco).toFixed(2)}</td>
@@ -180,7 +211,7 @@ function gerarRelatorioVendas() {
   });
 
   // Adicionar uma linha para o total de vendas
-  const linhaTotal = document.createElement('tr');
+  const linhaTotal = document.createElement("tr");
   linhaTotal.innerHTML = `
     <td><strong>Total</strong></td>
     <td><strong>R$${totalVendas.toFixed(2)}</strong></td>
@@ -189,5 +220,5 @@ function gerarRelatorioVendas() {
   tabelaRelatorio.appendChild(linhaTotal);
 
   // Exibir a área do relatório
-  document.getElementById('relatorio-vendas').classList.remove('hidden');
+  document.getElementById("relatorio-vendas").classList.remove("hidden");
 }

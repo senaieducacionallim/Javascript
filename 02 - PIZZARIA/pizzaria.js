@@ -10,6 +10,25 @@ function exibirMensagem(texto, tipo) {
   }, 3000);
 }
 
+function validarLogin() {
+  const usuario = document.getElementById("usuario").value;
+  const senha = document.getElementById("senha").value;
+
+  // Usuário e senha fixos para validação (você pode substituir por algo mais avançado)
+  const usuarioCorreto = "admin";
+  const senhaCorreta = "1234";
+
+  if (usuario === usuarioCorreto && senha === senhaCorreta) {
+    exibirMensagem("Login realizado com sucesso!", "sucesso");
+    setTimeout(() => {
+      // Redireciona para a página principal
+      window.location.href = "index.html";
+    }, 1000); // Aguarda 1 segundo antes de redirecionar
+  } else {
+    exibirMensagem("Usuário ou senha incorretos.", "erro");
+  }
+}
+
 let cardapio = [];
 let pizzaParaAlterar = null;
 
@@ -179,4 +198,7 @@ function gerarRelatorioVendas() {
   tabelaRelatorio.appendChild(linhaTotal);
 
   document.getElementById("relatorio-vendas").classList.remove("hidden");
+
+ 
 }
+
