@@ -1,7 +1,8 @@
 function exibirMensagem(texto, tipo) {
   const mensagem = document.getElementById("mensagem");
   mensagem.textContent = texto;
-  mensagem.className = `mensagem ${tipo}`; // Adiciona a classe de estilo (sucesso ou erro)
+  // Adiciona a classe de estilo (sucesso ou erro)
+  mensagem.className = `mensagem ${tipo}`; 
   mensagem.classList.remove("hidden");
 
   // Remove a mensagem após 3 segundos
@@ -10,24 +11,84 @@ function exibirMensagem(texto, tipo) {
   }, 3000);
 }
 
+// function validarLogin() {
+//   const usuario = document.getElementById("usuario").value;
+//   const senha = document.getElementById("senha").value;
+
+//   // Usuário e senha fixos para validação
+//   // (você pode substituir por algo mais avançado)
+//   const usuarioCorreto = "admin";
+//   const senhaCorreta = "1234";
+
+//   if (usuario === usuarioCorreto && senha === senhaCorreta) {
+//     exibirMensagem("Login realizado com sucesso!", "sucesso");
+//     setTimeout(() => {
+//       // Redireciona para a página principal
+//       window.location.href = "biblioteca3.html";
+//     }, 1000); // Aguarda 1 segundo antes de redirecionar
+//   } else {
+//     exibirMensagem("Usuário ou senha incorretos.", "erro");
+//   }
+// }
+
+// Salva um novo usuário no localStorage
+function cadastrarUsuario(novoUsuario, novaSenha) {
+  let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+  // Verifica se já existe
+  if (usuarios.some(u => u.usuario === novoUsuario)) {
+    exibirMensagem("Usuário já existe!", "erro");
+    return false;
+  }
+  usuarios.push({ usuario: novoUsuario, senha: novaSenha });
+  localStorage.setItem("usuarios", JSON.stringify(usuarios));
+  exibirMensagem("Usuário cadastrado com sucesso!", "sucesso");
+  return true;
+}
+
+// Busca usuário no localStorage
+function buscarUsuario(usuario, senha) {
+  let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+  return usuarios.find(u => u.usuario === usuario && u.senha === senha);
+}
+
+// Busca usuário apenas pelo nome
+function buscarUsuarioPorNome(usuario) {
+  let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+  return usuarios.find(u => u.usuario === usuario);
+}
+
 function validarLogin() {
   const usuario = document.getElementById("usuario").value;
   const senha = document.getElementById("senha").value;
 
-  // Usuário e senha fixos para validação (você pode substituir por algo mais avançado)
-  const usuarioCorreto = "admin";
-  const senhaCorreta = "1234";
-
-  if (usuario === usuarioCorreto && senha === senhaCorreta) {
+  if (buscarUsuario(usuario, senha)) {
     exibirMensagem("Login realizado com sucesso!", "sucesso");
     setTimeout(() => {
-      // Redireciona para a página principal
       window.location.href = "biblioteca3.html";
-    }, 1000); // Aguarda 1 segundo antes de redirecionar
+    }, 1000);
   } else {
     exibirMensagem("Usuário ou senha incorretos.", "erro");
   }
 }
+
+function esqueceuSenha() {
+  const usuario = prompt("Digite seu usuário:");
+  const user = buscarUsuarioPorNome(usuario);
+  if (user) {
+    exibirMensagem(`Sua senha é: ${user.senha}`, "sucesso");
+  } else {
+    exibirMensagem("Usuário não encontrado.", `erro`);
+  }
+}
+
+function abrirCadastroUsuario() {
+  const novoUsuario = prompt("Digite o novo usuário:");
+  if (!novoUsuario) return;
+  const novaSenha = prompt("Digite a nova senha:");
+  if (!novaSenha) return;
+  cadastrarUsuario(novoUsuario, novaSenha);
+}
+
 
 let biblioteca = [];
 let livroParaAlterar = null;
