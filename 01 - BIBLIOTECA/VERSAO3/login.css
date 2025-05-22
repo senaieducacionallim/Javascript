@@ -345,3 +345,33 @@ select {
     background-color: #e74c3c;
     /* Verde mais escuro */
 }
+
+.hidden {
+    display: none;
+}
+
+#cadastro-usuario {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#cadastro-usuario input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #e67e22;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #fff8e1;
+    color: #333;
+    text-align: center;
+}
+
+#cadastro-usuario button {
+    margin: 5px;
+}
