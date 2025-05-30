@@ -59,6 +59,7 @@ function buscarUsuarioPorNome(usuario) {
 
 function validarLogin() {
   const usuario = document.getElementById("usuario").value;
+  const cliente = document.getElementById("usuario").value;
   const senha = document.getElementById("senha").value;
 
   if (buscarUsuario(usuario, senha)) {
@@ -66,6 +67,12 @@ function validarLogin() {
     setTimeout(() => {
       window.location.href = "biblioteca3.html";
     }, 1000);
+     if (buscarUsuario(cliente,senha)) {
+      exibirMensagem("Login realizado com sucesso!", "sucesso");
+      setTimeout(() => {
+        window.location.href = "biblioteca4.html";
+      }, 1000);
+    }
   } else {
     exibirMensagem("Usuário ou senha incorretos.", "erro");
   }
@@ -121,6 +128,8 @@ function mostrarSecao(secao) {
   document.getElementById("cadastro").classList.add("hidden");
   document.getElementById("consulta").classList.add("hidden");
   document.getElementById("alterar").classList.add("hidden");
+  document.getElementById("emprestimo").classList.add("hidden");
+  document.getElementById("venda").classList.add("hidden");
 
   // Mostra a seção selecionada
   document.getElementById(secao).classList.remove("hidden");
